@@ -49,7 +49,10 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	
 	public void launchGame() {
 		//build the window and start the simulation
-		
+		window = new JFrame();
+		window.setVisible(true);
+		window.setSize(800, 800);
+		window.setTitle("Kanye's Game Of Life");
 	}
 	
 	@Override
@@ -65,4 +68,4 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 			//call clearCells
 	}
 	}
-}
+
