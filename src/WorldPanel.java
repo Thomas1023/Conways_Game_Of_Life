@@ -34,6 +34,13 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	
 	public void randomizeCells() {
 		// make each cell alive or dead randomly
+		for (int i = 0; i < cells.length; i++) {
+			
+			for (int j = 0; j < cells.length; j++) {
+				
+				Cell[i][j]
+			}
+		}
 		repaint();
 	}
 	

@@ -50,13 +50,22 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	public void launchGame() {
 		//build the window and start the simulation
 		window = new JFrame();
+		startStopButton = new JButton();
+		randomizeButton = new JButton();
+		clearButton = new JButton();
 		window.setVisible(true);
 		window.setSize(800, 800);
 		window.setTitle("Kanye's Game Of Life");
+		window.add(inputPa)
+		window.add(startStopButton);
+		window.add(randomizeButton);
+		window.add(clearButton);
+		window.add();
+		
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void (ActionEvent e) {
 		//if startStopButton is pressed, 
 			// toggle isRunning to the opposite of its current state
 			// start or stop the animation based on the state of isRunning

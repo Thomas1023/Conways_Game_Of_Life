@@ -38,7 +38,7 @@ public class Cell implements Drawable{
 	}
 	
 	//draws colored square if cell is alive
-	//draws empty square if cell is dead
+	//draws empty square if cell is dead 
 	@Override
 	public void draw(Graphics g) {
 	
