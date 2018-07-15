@@ -136,42 +136,38 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		int livingNeighbors = 0;
 		if (x != 0) {
 			if (cells[x - 1][y].isAlive == true) {
-				livingNeighbors++;
+				livingNeighbors=livingNeighbors+1;
 			}
 			if (y != cells[y].length - 1) {
 			if (cells[x - 1][y + 1].isAlive == true) {
-				livingNeighbors++;
+				livingNeighbors=livingNeighbors+1;
 			}
 			}
 			if (y != 0) {
 			if (cells[x - 1][y - 1].isAlive == true ) {
-				livingNeighbors++;
-			}
-			}
-		}
+				livingNeighbors=livingNeighbors+1;
+			}}}
 		if (y != 0) {
 			if (cells[x][y - 1].isAlive == true) {
-				livingNeighbors++;
-			}
-			if (x != cells[x].length - 1) {
+				livingNeighbors=livingNeighbors+1;
+			}if (x != cells[x].length - 1) {
 			if (cells[x + 1][y - 1].isAlive == true) {
-				livingNeighbors++;
-			}
-			}
+				livingNeighbors=livingNeighbors+1;
+			}}
 		}
 		if (x != cells[x].length - 1) {
 		if (cells[x + 1][y].isAlive == true) {
-			livingNeighbors++;
+			livingNeighbors=livingNeighbors+1;
 		}
 			if (y != cells[y].length - 1) {
 				if (cells[x + 1][y + 1].isAlive == true) {
-					livingNeighbors++;
+					livingNeighbors=livingNeighbors+1;
 				}
 			}
 		}
 		if (y != cells[y].length - 1) {
 		if (cells[x][y + 1].isAlive == true) {
-			livingNeighbors++;
+			livingNeighbors=livingNeighbors+1;
 		}
 		}
 	
