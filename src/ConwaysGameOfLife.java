@@ -27,19 +27,30 @@ import javax.swing.JTextField;
  */
 
 public class ConwaysGameOfLife extends JPanel implements ActionListener{
-	public static final int WIDTH = 700;
-	public static final int HEIGHT = 700;
-	public static final int CELLS_PER_ROW = 350;
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 1000;
+	public static final int CELLS_PER_ROW = 128;
 	
-	private boolean isRunning = false;
+	public boolean isRunning = false;
 	
+	public static boolean CRT = true;
+
 	private JFrame window;
 	private JPanel inputPanel;
 	private JButton startStopButton;
 	private JButton randomizeButton;
 	private JButton clearButton;
 	private JLabel speedLabel;
+	private JLabel LB;
+
 	private JTextField speedField;
+	private JTextField prbField;
+
+	private JTextField probField;
+
+	private JButton NYAN;
+
+	
 	
 	private WorldPanel gamePanel;
 	
@@ -47,34 +58,75 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		new ConwaysGameOfLife().launchGame();
 	}
 	
-	public void launchGame() {
-		//build the window and start the simulation
-		window = new JFrame();
-		startStopButton = new JButton();
-		randomizeButton = new JButton();
-		clearButton = new JButton();
-		window.setVisible(true);
-		window.setSize(800, 800);
-		window.setTitle("Kanye's Game Of Life");
-		window.add(inputPa)
-		window.add(startStopButton);
-		window.add(randomizeButton);
-		window.add(clearButton);
-		window.add();
-		
-	}
-	
-	@Override
-	public void (ActionEvent e) {
-		//if startStopButton is pressed, 
-			// toggle isRunning to the opposite of its current state
-			// start or stop the animation based on the state of isRunning
-		
-		// if ranomizeButton is pressed
-			// call randomizeCells
-		
-		// if clearButton is pressed
-			//call clearCells
-	}
-	}
+	public void launchGame() {		
 
+		window = new JFrame();
+		inputPanel = new JPanel();
+		gamePanel = new WorldPanel(WIDTH,HEIGHT,CELLS_PER_ROW);
+		startStopButton = new JButton("start");
+		NYAN = new JButton("NYAN-ON");
+		NYAN.addActionListener(this);
+		startStopButton.addActionListener(this);
+		randomizeButton = new JButton("mIX");
+		clearButton = new JButton();
+		clearButton.setText("clear");
+		clearButton.addActionListener(this);
+		speedLabel = new JLabel();
+		LB = new JLabel("/");
+
+		speedLabel.setText("speed");
+		speedField = new JTextField("16");
+		prbField = new JTextField("5");
+
+		probField = new JTextField("1");
+
+		speedField.setText("" + gamePanel.getTimer());
+		randomizeButton.addActionListener(this);
+		window.setDefaultCloseOperation(3);	
+		window.add(inputPanel);
+		window.setVisible(true);
+		window.setBounds(0, 0, 1000, 1000);
+		
+		inputPanel.add(startStopButton);
+		inputPanel.add(speedLabel);
+		inputPanel.add(probField);
+		inputPanel.add(LB);
+
+		inputPanel.add(prbField);
+		inputPanel.add(speedField);
+		inputPanel.add(NYAN);
+		inputPanel.add(randomizeButton);
+		inputPanel.add(clearButton);
+		inputPanel.add(gamePanel);
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == NYAN) {
+			if(CRT) {
+				CRT = false;
+				NYAN.setText("NYAN-OFF");
+			}else {
+				CRT = true;
+				NYAN.setText("NYAN-ON");
+			}
+		}
+		if(e.getSource() == startStopButton) {
+			if(isRunning == false) {
+				isRunning = !isRunning;
+				startStopButton.setText("stop");
+				gamePanel.startAnimation(Integer.parseInt(speedField.getText()));
+			} else if(isRunning == true) {
+				isRunning = !isRunning;
+				startStopButton.setText("start");
+				gamePanel.stopAnimation(Integer.parseInt(speedField.getText()));
+			}
+		}
+		if(e.getSource() == randomizeButton) {
+			gamePanel.randomizeCells(Integer.parseInt(prbField.getText()),Integer.parseInt(probField.getText()));
+		}
+		if(e.getSource() == clearButton) {
+			gamePanel.clearCells();
+		}
+	}
+	}
