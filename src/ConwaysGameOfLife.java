@@ -10,22 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/*
- *  1. Check out the Wikipedia page on Conway's Game of Life to familiarize yourself
- *     with the concept.
- *     
- *	https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
- */
-
-/*
- *  2. Run the ConwaysGOL.jar to see a demo of the final product.
- */
-
-/* 
- *  3. Create the program on your own or fill in the code under the comments to complete the project.
- *
- */
-
 public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	public static final int WIDTH = 1000;
 	public static final int HEIGHT = 1000;
@@ -37,9 +21,10 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 
 	private JFrame window;
 	private JPanel inputPanel;
+	
+	private JButton clearButton;
 	private JButton startStopButton;
 	private JButton randomizeButton;
-	private JButton clearButton;
 	private JLabel speedLabel;
 	private JLabel LB;
 
@@ -49,7 +34,6 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	private JTextField probField;
 
 	private JButton NYAN;
-
 	
 	
 	private WorldPanel gamePanel;
@@ -89,15 +73,17 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		
 		inputPanel.add(startStopButton);
 		inputPanel.add(speedLabel);
+		
+		inputPanel.add(speedField);
+		inputPanel.add(NYAN);
 		inputPanel.add(probField);
 		inputPanel.add(LB);
 
 		inputPanel.add(prbField);
-		inputPanel.add(speedField);
-		inputPanel.add(NYAN);
 		inputPanel.add(randomizeButton);
 		inputPanel.add(clearButton);
 		inputPanel.add(gamePanel);
+		
 		
 	}
 	@Override
